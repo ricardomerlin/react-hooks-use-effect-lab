@@ -10,13 +10,12 @@ function Question({ question, onAnswered }) {
       if (timeRemaining > 0) {
         setTimeRemaining(timeRemaining - 1);
       } else {
-        // Reset to 10 when the timer reaches 0
         setTimeRemaining(10);
         onAnswered(false)
       }
     }, 1000);
 
-    return function cleanUp() {
+    return () => {
       clearInterval(timer)
     }
   }, [timeRemaining])
